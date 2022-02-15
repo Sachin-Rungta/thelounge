@@ -2,10 +2,10 @@
 framework: mocha
 postMerge:
   pattern:
-    - "./test/**/*.js"
+    - "./test/tests/*.js"
 preMerge:
   pattern:
-    - "./test/**/*.js"
+    - "./test/tests/*.js"
 preRun:
   command:
     - yarn install
