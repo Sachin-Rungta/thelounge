@@ -1,16 +1,28 @@
----
 framework: mocha
-postMerge:
-  pattern:
-    - "./test/tests/*.js"
-preMerge:
-  pattern:
-    - "./test/tests/*.js"
 preRun:
   command:
     - yarn install
-    - yarn run build
+    - NODE_ENV=production yarn build
+preMerge:
+  pattern:
+    - "./test/commands/**/*.js"
+    - "./test/fixtures/**/*.js"
+    - "./test/models/**/*.js"
+    - "./test/plugins/**/*.js"
+    - "./test/src/**/*.js"
+    - "./test/tests/**/*.js"
+    - "./test/*.js"
+postMerge:
+  pattern:
+    - "./test/commands/**/*.js"
+    - "./test/fixtures/**/*.js"
+    - "./test/models/**/*.js"
+    - "./test/plugins/**/*.js"
+    - "./test/src/**/*.js"
+    - "./test/tests/**/*.js"
+    - "./test/*.js"
 postRun:
   command:
     - yarn --version
-version: 1.0
+configFile: test/.mocharc.yml
+version: 1.1
